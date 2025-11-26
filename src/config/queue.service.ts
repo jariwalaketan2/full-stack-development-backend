@@ -36,13 +36,15 @@ export class QueueService {
         '2': { id: 2, name: 'Jane Smith', email: 'jane@example.com' },
         '3': { id: 3, name: 'Alice Johnson', email: 'alice@example.com' },
       };
-      
+
       const user = mockUsers[item.id];
+
       if (!user) {
         item.reject(new Error('User not found'));
       } else {
         item.resolve(user);
       }
+
     } catch (error) {
       item.reject(error);
     } finally {
